@@ -80,6 +80,24 @@ void displayAttendance(string filename) {
     }
     file.close();
 }
+void attendanceSummary(string filename) {
+    ifstream file(filename);
+    string line;
+    int p = 0, a = 0, l = 0;
+
+    while (getline(file, line)) {
+        char status = line.back();
+        if (status == 'P') p++;
+        else if (status == 'A') a++;
+        else if (status == 'L') l++;
+    }
+
+    cout << "Present: " << p << endl;
+    cout << "Absent: " << a << endl;
+    cout << "Late: " << l << endl;
+
+    file.close();
+}
 int main() {
     int choice;
     do {
