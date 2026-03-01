@@ -44,6 +44,18 @@ public:
     string startTime;
     int duration;
 };
+AttendanceSession createSession() {
+    AttendanceSession s;
+    cout << "Course Code: ";
+    cin >> s.courseCode;
+    cout << "Date (DD_MM_YYYY): ";
+    cin >> s.date;
+    cout << "Start Time: ";
+    cin >> s.startTime;
+    cout << "Duration (hours): ";
+    cin >> s.duration;
+    return s;
+}
 int main(){
     cout << "Digital Attendance System\n";
     return 0;
