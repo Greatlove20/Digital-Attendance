@@ -72,10 +72,19 @@ void markAttendance(AttendanceSession s) {
     students.close();
     sessionFile.close();
 }
+void displayAttendance(string filename) {
+    ifstream file(filename);
+    string line;
+    while (getline(file, line)) {
+        cout << line << endl;
+    }
+    file.close();
+}
 int main() {
     int choice;
     do {
-        cout << "\n1. Add Student\n2. View Students\n3. Create Session\n4. Exit\nChoice: ";
+        cout << "\n---DIGITAL ATTENDANCE SYSTEM---\n";
+        cout << "\n1. Add Student\n2. View Students\n3. Create Session\n4. Display Attendance\n5. Exit\nChoice: ";
         cin >> choice;
 
         if (choice == 1) addStudent();
