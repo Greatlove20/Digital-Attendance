@@ -56,6 +56,22 @@ AttendanceSession createSession() {
     cin >> s.duration;
     return s;
 }
+void markAttendance(AttendanceSession s) {
+    ifstream students("students.txt");
+    ofstream sessionFile("session_" + s.courseCode + "_" + s.date + ".txt");
+
+    string line;
+    char status;
+
+    while (getline(students, line)) {
+        cout << "Student: " << line << " (P/A/L): ";
+        cin >> status;
+        sessionFile << line << "," << status << endl;
+    }
+
+    students.close();
+    sessionFile.close();
+}
 int main() {
     int choice;
     do {
