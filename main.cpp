@@ -100,16 +100,48 @@ void attendanceSummary(string filename) {
 }
 int main() {
     int choice;
+    AttendanceSession session;
+    string filename;
+
     do {
-        cout << "\n---DIGITAL ATTENDANCE SYSTEM---\n";
-        cout << "\n1. Add Student\n2. View Students\n3. Create Session\n4. Display Attendance\n5. Exit\nChoice: ";
+        cout << "\n--- DIGITAL ATTENDANCE SYSTEM ---\n";
+        cout << "1. Add Student\n";
+        cout << "2. View Students\n";
+        cout << "3. Create Attendance Session & Mark Attendance\n";
+        cout << "4. View Attendance Summary\n";
+        cout << "5. Exit\n";
+        cout << "Choice: ";
         cin >> choice;
 
-        if (choice == 1) addStudent();
-        else if (choice == 2) viewStudents();
-        else if (choice == 3) createSession();
+        switch (choice) {
+            case 1:
+                addStudent();
+                break;
 
-    } while (choice != 4);
+            case 2:
+                viewStudents();
+                break;
+
+            case 3:
+                session = createSession();
+                markAttendance(session);
+                break;
+
+            case 4:
+                cout << "Enter session filename: ";
+                cin >> filename;
+                attendanceSummary(filename);
+                break;
+
+            case 5:
+                cout << "Exiting program...\n";
+                break;
+
+            default:
+                cout << "Invalid choice.\n";
+        }
+
+    } while (choice != 5);
 
     return 0;
 }
