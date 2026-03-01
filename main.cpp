@@ -37,6 +37,13 @@ void viewStudents() {
     }
     file.close();
 }
+class AttendanceSession {
+public:
+    string courseCode;
+    string date;
+    string startTime;
+    int duration;
+};
 int main(){
     cout << "Digital Attendance System\n";
     return 0;
