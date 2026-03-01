@@ -10,4 +10,4 @@ DIGITAL ATTENDANCE SYSTEM
 Windows (Offline)
 
 ## Compile
-g++ main.cpp -o attendance
+g++ main.cpp -o main.exe
