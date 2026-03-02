@@ -24,6 +24,7 @@ void addStudent() {
     getline(cin, s.name);
     cout << "Program: ";
     getline(cin, s.program);
+    cout << "Student added successfully.\n";
 
     file << s.indexNumber << "," << s.name << "," << s.program << endl;
     file.close();
@@ -46,14 +47,20 @@ public:
 };
 AttendanceSession createSession() {
     AttendanceSession s;
+
     cout << "Course Code: ";
     cin >> s.courseCode;
-    cout << "Date (DD_MM_YYYY): ";
-    cin >> s.date;
+    cin.ignore(); 
+
+    cout << "Date (YYYY_MM_DD): ";
+    getline(cin, s.date);
+
     cout << "Start Time: ";
-    cin >> s.startTime;
+    getline(cin, s.startTime);
+
     cout << "Duration (hours): ";
     cin >> s.duration;
+
     return s;
 }
 void markAttendance(AttendanceSession s) {
